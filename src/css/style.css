@@ -67,7 +67,7 @@ p {
   margin-left: 2.375rem;
 }
 
-.greyed-out {
+.grey-overlay {
   position: fixed;
   top: 0;
   right: 0;
@@ -75,10 +75,13 @@ p {
   left: 0;
   background-color: black;
   opacity: 50%;
+  display: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
-.sidebar-menu {
-  display: none;
+.show {
+  display: block;
 }
 
 .sidebar-menu img {
@@ -87,7 +90,7 @@ p {
       align-self: flex-end;
 }
 
-.sidebar-menu.show {
+.sidebar-menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -98,12 +101,18 @@ p {
   position: fixed;
   padding: 30px 20px 0 20px;
   top: 0;
-  right: 0;
+  right: -256px;
   background-color: white;
   height: 100vh;
-  width: 68vw;
+  width: 256px;
   gap: 80px;
   z-index: 10;
+  -webkit-transition: right 0.3s ease;
+  transition: right 0.3s ease;
+}
+
+.sidebar-menu.move {
+  right: 0;
 }
 
 .sidebar-menu-list {
