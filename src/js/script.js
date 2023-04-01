@@ -15,16 +15,20 @@ sideMenu.innerHTML = `<img class="close-button" src="../assets/images/icon-menu-
 let i = 0;
 burgerButton.onclick = function () {
   burgerButton.after(sideMenu);
-  sideMenu.classList.toggle("move");
   document.body.append(greyOverlay);
-  greyOverlay.classList.toggle("show");
+  setTimeout(() => {
+    sideMenu.classList.toggle("move");
+    greyOverlay.classList.toggle("show");
+  }, 10);
   if (!i) {
     const closeButton = sideMenu.querySelector(".close-button");
     closeButton.onclick = function () {
       sideMenu.classList.toggle("move");
       greyOverlay.classList.toggle("show");
-      greyOverlay.remove();
-	  sideMenu.remove();
+      setTimeout(() => {
+        greyOverlay.remove();
+        sideMenu.remove();
+      }, 300);
     };
     i = 1;
   }
